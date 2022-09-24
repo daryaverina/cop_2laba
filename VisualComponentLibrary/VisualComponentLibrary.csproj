@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +69,19 @@
       <DependentUpon>OutputUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unvisual\DiagramExcelComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unvisual\DiagramExcelComponent.Designer.cs">
+      <DependentUpon>DiagramExcelComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unvisual\ImageExcelComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unvisual\ImageExcelComponent.Designer.cs">
+      <DependentUpon>ImageExcelComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unvisual\LegendLocation.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +94,9 @@
     <EmbeddedResource Include="OutputUserControl.resx">
       <DependentUpon>OutputUserControl.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

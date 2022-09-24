@@ -31,10 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonImage = new System.Windows.Forms.Button();
+            this.buttonTable = new System.Windows.Forms.Button();
+            this.buttonDiagram = new System.Windows.Forms.Button();
             this.inputUserControl = new VisualComponentLibrary.InputUserControl();
             this.outputUserControl = new VisualComponentLibrary.OutputUserControl();
             this.choiceUserControl = new VisualComponentLibrary.ChoiceUserControl();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -64,6 +67,45 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Select the place:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(386, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonImage
+            // 
+            this.buttonImage.Location = new System.Drawing.Point(12, 238);
+            this.buttonImage.Name = "buttonImage";
+            this.buttonImage.Size = new System.Drawing.Size(75, 23);
+            this.buttonImage.TabIndex = 8;
+            this.buttonImage.Text = "Image";
+            this.buttonImage.UseVisualStyleBackColor = true;
+            this.buttonImage.Click += new System.EventHandler(this.buttonImage_Click);
+            // 
+            // buttonTable
+            // 
+            this.buttonTable.Location = new System.Drawing.Point(113, 237);
+            this.buttonTable.Name = "buttonTable";
+            this.buttonTable.Size = new System.Drawing.Size(75, 23);
+            this.buttonTable.TabIndex = 9;
+            this.buttonTable.Text = "Table";
+            this.buttonTable.UseVisualStyleBackColor = true;
+            // 
+            // buttonDiagram
+            // 
+            this.buttonDiagram.Location = new System.Drawing.Point(212, 237);
+            this.buttonDiagram.Name = "buttonDiagram";
+            this.buttonDiagram.Size = new System.Drawing.Size(75, 23);
+            this.buttonDiagram.TabIndex = 10;
+            this.buttonDiagram.Text = "Diagram";
+            this.buttonDiagram.UseVisualStyleBackColor = true;
+            this.buttonDiagram.Click += new System.EventHandler(this.buttonDiagram_Click);
+            // 
             // inputUserControl
             // 
             this.inputUserControl.Location = new System.Drawing.Point(223, 23);
@@ -90,21 +132,14 @@
             this.choiceUserControl.Size = new System.Drawing.Size(196, 199);
             this.choiceUserControl.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(386, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 282);
+            this.Controls.Add(this.buttonDiagram);
+            this.Controls.Add(this.buttonTable);
+            this.Controls.Add(this.buttonImage);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.inputUserControl);
             this.Controls.Add(this.label3);
@@ -127,6 +162,9 @@
         private System.Windows.Forms.Label label3;
         private VisualComponentLibrary.InputUserControl inputUserControl;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonImage;
+        private System.Windows.Forms.Button buttonTable;
+        private System.Windows.Forms.Button buttonDiagram;
     }
 }
 
