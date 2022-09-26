@@ -82,6 +82,12 @@
       <DependentUpon>ImageExcelComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="Unvisual\LegendLocation.cs" />
+    <Compile Include="Unvisual\TableExcelComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Unvisual\TableExcelComponent.Designer.cs">
+      <DependentUpon>TableExcelComponent.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>

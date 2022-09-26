@@ -95,6 +95,7 @@
             this.buttonTable.TabIndex = 9;
             this.buttonTable.Text = "Table";
             this.buttonTable.UseVisualStyleBackColor = true;
+            this.buttonTable.Click += new System.EventHandler(this.buttonTable_Click);
             // 
             // buttonDiagram
             // 

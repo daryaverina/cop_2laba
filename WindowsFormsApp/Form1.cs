@@ -63,5 +63,23 @@ namespace WindowsFormsApp
             DiagramExcelComponent comp2 = new DiagramExcelComponent();
             comp2.CreateExcelFileDiagram("C:\\Users\\Tamara\\Desktop\\ExcelDiagram.xls", "Цветы", "Количество цветов в букете", LegendLocation.Left, dictionary);
         }
+
+        private void buttonTable_Click(object sender, EventArgs e)
+        {
+            var rowMergeInfo = new Dictionary<string, int[]>();
+            rowMergeInfo.Add("О книге", new int[] { 2, 3 });
+            rowMergeInfo.Add("Об авторе", new int[] { 4, 5 });
+            var rowHeight = new int[] { 20, 30, 20, 20, 30, 40};
+            var tableHeader = new string[] { "Название", "Жанр", "Страниц", "Автор", "Страна", "Год" };
+            var booksList = new List<Book>();
+            booksList.Add(new Book("The Secret Garden", "Children's novel", 375, "Frances Hodgson Burnett", "UK and US", 1911));
+            booksList.Add(new Book("Ash Princess", "Fantasy, Young adult", 448, "Laura Sebastian", "UK", 2018));
+            booksList.Add(new Book("Midnight Sun", "Young adult, Fantasy, Romance novel", 658, "Stephenie Meyer", "US", 2020));
+            booksList.Add(new Book("Harry Potter and the Philosopher's Stone", "Fantasy", 223, "J.K.Rowling", "UK", 1997));
+            booksList.Add(new Book("Divergent", "Science fiction, Dystopia, Young adult fiction", 487, "Veronica Roth", "US", 2011));
+
+            TableExcelComponent comp3 = new TableExcelComponent();
+            comp3.CreateExcelFileTable("C:\\Users\\Tamara\\Desktop\\ExcelTable.xls", "Книги", rowMergeInfo, rowHeight, tableHeader, booksList);
+        }
     }
 }
