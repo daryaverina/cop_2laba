@@ -34,6 +34,7 @@ namespace WindowsFormsApp
             placeList.Add(new Place("Great Britian", "London", "Kensington"));
             placeList.Add(new Place("USA", "New York", "Manhattan"));
             placeList.Add(new Place("USA", "New York", "Brooklyn"));
+            outputUserControl.TreeHierarchy(new string[] { "city", "country", "district" });
             outputUserControl.CreateTree(placeList);
         }
 

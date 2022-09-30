@@ -14,6 +14,7 @@ namespace VisualComponentLibrary
     public partial class OutputUserControl : UserControl
     {
         private event EventHandler _event;
+        public string[] hierarchy;
         public Type typeOflist;
         public FieldInfo[] nodesName;
 
@@ -46,32 +47,39 @@ namespace VisualComponentLibrary
             }
         }
 
+        public void TreeHierarchy(string[] hierarchy)
+        {
+            if (hierarchy != null) this.hierarchy = hierarchy;
+        }
+
         public void CreateTree<T>(List<T> list) where T : class, new ()
         {
             typeOflist = list[0].GetType();
             nodesName = typeOflist.GetFields();
-            int countLevel = nodesName.Length;
-            
+            int countLevel = hierarchy.Length;
+
             foreach (var node in list)
             {
                 var nodeLevels = treeView.Nodes;
                 int currentLevel = 1;
                 for (int i = 0; i < countLevel; i++)
                 {
-                    var fieldValue = nodesName[i].GetValue(node).ToString();
-
-                    if (!nodeLevels.ContainsKey(fieldValue))
+                    var field = typeOflist.GetField(hierarchy[i]);
+                    if (field != null)
                     {
-                        if (currentLevel == nodesName.Length)
+                        var fieldValue = field.GetValue(node).ToString();
+                        if (!nodeLevels.ContainsKey(fieldValue))
                         {
-                            nodeLevels.Add(fieldValue);
+                            if (currentLevel == nodesName.Length)
+                            {
+                                nodeLevels.Add(fieldValue);
+                            }
+                            else
+                                nodeLevels.Add(fieldValue, fieldValue);
                         }
-                        else
-                            nodeLevels.Add(fieldValue, fieldValue);
+                        if (currentLevel != nodesName.Length)
+                            nodeLevels = nodeLevels.Find(fieldValue, false)[0].Nodes;
                     }
-                    if (currentLevel != nodesName.Length)
-                        nodeLevels = nodeLevels.Find(fieldValue, false)[0].Nodes;
-
                     currentLevel++;
                 }
             }
@@ -95,7 +103,6 @@ namespace VisualComponentLibrary
             listWithFields.Reverse();
 
             var elem = new T();
-            var count = elem.GetType().GetProperties().Length;
             for (int i = 0; i < nodesName.Length; ++i)
             {
                 var finfo = elem.GetType().GetField(nodesName[i].Name);
