@@ -1,6 +1,6 @@
 ﻿namespace VisualComponentLibrary.Unvisual
 {
-    partial class DiagramExcelComponent
+    partial class pdf_table
     {
         /// <summary>
         /// Обязательная переменная конструктора.

@@ -8,79 +8,110 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisualComponentLibrary.Unvisual;
+using VisualComponentLibrary.Unvisual.HelperModels;
 
 namespace WindowsFormsApp
 {
     public partial class Form1 : Form
     {
+        public class MyObject
+        {
+            public string svodka { get; set; }
+            public string last_name { get; set; }
+            public string first_name { get; set; }
+            public int age { get; set; }
+            public double premium { get; set; }
+            override
+            public String ToString()
+            {
+                String obj = svodka + " " + last_name + " " + first_name;
+                return obj;
+            }
+            // public int age { get; set; }
+            //   public double premium { get; set; }
+
+        }
+
+        List<MyObject> TestData = new List<MyObject> {
+            new MyObject{ svodka = "first",
+            last_name = "bobrov",
+            first_name = "ivan",
+            age = 15,
+            premium = 10.000
+            },
+            new MyObject{ svodka = "second",
+            last_name = "Somov",
+            first_name = "valera",
+            age = 45,
+            premium = 15.000
+            },
+            new MyObject{ svodka = "third",
+            last_name = "Karpov",
+            first_name = "Andrey",
+            age = 20,
+            premium = 5.000
+            }
+        };
         public Form1()
         {
             InitializeComponent();
-            //checkedList - choiceControl
-            List<string> listForChoiceControl = new List<string>() { "sunny", "bright", "cloudy", "fine", "clear", "humid", "foggy", "overcast", "windy" };
-            choiceUserControl.AddItems(listForChoiceControl);
-
-            //dateTimePicker - inputControl
-            inputUserControl.MaxDate = new DateTime(2022, 9, 22, 23, 59, 59); 
-            inputUserControl.MinDate = new DateTime(2022, 9, 17, 23, 59, 59); 
-            inputUserControl.SelectItemProperty = DateTime.Now;
-
-            //treeView - outputControl
-            List<Place> placeList = new List<Place>();
-            placeList.Add(new Place("Russia", "Moscow", "Arbat"));
-            placeList.Add(new Place("Russia", "Moscow", "Tverskoi"));
-            placeList.Add(new Place("Russia", "Moscow", "Sokol"));
-            placeList.Add(new Place("Great Britian", "London", "Greenwich"));
-            placeList.Add(new Place("Great Britian", "London", "Kensington"));
-            placeList.Add(new Place("USA", "New York", "Manhattan"));
-            placeList.Add(new Place("USA", "New York", "Brooklyn"));
-            outputUserControl.TreeHierarchy(new string[] { "city", "country", "district" });
-            outputUserControl.CreateTree(placeList);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+
+
+        private void button3_Click(object sender, EventArgs e)
         {
-            var elem = outputUserControl.GetSelectedNode<Place>();
-            if (elem != null) MessageBox.Show(elem.country + ", " + elem.city + ", " + elem.district, "treeView", MessageBoxButtons.OK);
+            List<string[,]> list = new List<string[,]>() {
+                new string[,]{ { "first name","last name","age"},{ "dasha","verina","20"},{"vasev","vasya","13" }, {"bebov","vanya","40" } },
+                new string[,]{ { "country","population","language"},{ "Russia", "144,1", "russian"},{"Usa", "329,5", "english" }, {"Sweden", "10,35", "swedish" } }
+            };
+            pdf_tables tc = new pdf_tables();
+            tc.SaveTables("C:\\Users\\Дарья\\Desktop\\firstComponent.pdf", "Title", list);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            pdf_table MyTable = new pdf_table();
+            string folder = "C:\\Users\\Дарья\\Desktop\\secondComponent.pdf";
+            string title = "Test";
+
+            List<PdfColumnInfo> columns = new List<PdfColumnInfo>();
+            PdfRowInfo[] rows = new PdfRowInfo[4];
+
+            columns.Add(new PdfColumnInfo { Column_name = "svodka", Title = "Svodka", Width = 20});
+            columns.Add(new PdfColumnInfo { Column_name = "last_name", Title = "Surname", Width = 20 });
+            columns.Add(new PdfColumnInfo { Column_name = "first_name", Title = "Name", Width = 20 });
+            columns.Add(new PdfColumnInfo { Column_name = "age", Title = "Age", Width = 10 });
+            columns.Add(new PdfColumnInfo { Column_name = "premium", Title = "Premium", Width = 20 });
+
+            rows[0] = new PdfRowInfo() { Height = 60 };
+            rows[1] = new PdfRowInfo() { Height = 30 };
+            rows[2] = new PdfRowInfo() { Height = 30 };
+            rows[3] = new PdfRowInfo() { Height = 30 };
+
+            Console.WriteLine(rows[0]);
+            MyTable.SaveTable(folder, title, columns, rows, TestData);
         }
 
-        private void buttonImage_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            string[] images = new string[] { "F:\\cat-frog.jpg", "F:\\cherry.jpg" };
 
-            ImageExcelComponent comp1 = new ImageExcelComponent();
-            comp1.CreateExcelFileImage("C:\\Users\\Tamara\\Desktop\\ExcelImage.xls", "Изображения", images);
-        }
+            string folder = "C:\\Users\\Дарья\\Desktop\\thirdComponent.pdf";
+            string title = "Cities population file";
+            string histTitle = "Population";
 
-        private void buttonDiagram_Click(object sender, EventArgs e)
-        {
-            var dictionary = new Dictionary<string, int>();
-            dictionary.Add("Chamomile", 343);
-            dictionary.Add("Lavender", 122);
-            dictionary.Add("Cornflower", 10);
-            dictionary.Add("Petunia", 102);
-            dictionary.Add("Tulip", 88);
+            Histogram hc = new Histogram();
 
-            DiagramExcelComponent comp2 = new DiagramExcelComponent();
-            comp2.CreateExcelFileDiagram("C:\\Users\\Tamara\\Desktop\\ExcelDiagram.xls", "Цветы", "Количество цветов в букете", LegendLocation.Left, dictionary);
-        }
+            Dictionary<string, int> data = new Dictionary<string, int>();
+            data.Add("Moscow", 10);
+            data.Add("Ulyanovsk", 25);
+            data.Add("Samara", 19);
+            data.Add("Yalta", 27);
+            data.Add("Saratov", 45);
+            data.Add("Bobrovo", 12);
 
-        private void buttonTable_Click(object sender, EventArgs e)
-        {
-            var rowMergeInfo = new Dictionary<string, int[]>();
-            rowMergeInfo.Add("О книге", new int[] { 2, 3 });
-            rowMergeInfo.Add("Об авторе", new int[] { 4, 5 });
-            var rowHeight = new int[] { 20, 30, 20, 20, 30, 40};
-            var tableHeader = new string[] { "Название", "Жанр", "Страниц", "Автор", "Страна", "Год" };
-            var booksList = new List<Book>();
-            booksList.Add(new Book("The Secret Garden", "Children's novel", 375, "Frances Hodgson Burnett", "UK and US", 1911));
-            booksList.Add(new Book("Ash Princess", "Fantasy, Young adult", 448, "Laura Sebastian", "UK", 2018));
-            booksList.Add(new Book("Midnight Sun", "Young adult, Fantasy, Romance novel", 658, "Stephenie Meyer", "US", 2020));
-            booksList.Add(new Book("Harry Potter and the Philosopher's Stone", "Fantasy", 223, "J.K.Rowling", "UK", 1997));
-            booksList.Add(new Book("Divergent", "Science fiction, Dystopia, Young adult fiction", 487, "Veronica Roth", "US", 2011));
-
-            TableExcelComponent comp3 = new TableExcelComponent();
-            comp3.CreateExcelFileTable("C:\\Users\\Tamara\\Desktop\\ExcelTable.xls", "Книги", rowMergeInfo, rowHeight, tableHeader, booksList);
+            hc.SaveHistogram(folder, title, histTitle, LegendLocation.Right, data);
         }
     }
 }

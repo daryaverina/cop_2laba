@@ -28,144 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.buttonImage = new System.Windows.Forms.Button();
-            this.buttonTable = new System.Windows.Forms.Button();
-            this.buttonDiagram = new System.Windows.Forms.Button();
-            this.inputUserControl = new VisualComponentLibrary.InputUserControl();
-            this.outputUserControl = new VisualComponentLibrary.OutputUserControl();
-            this.choiceUserControl = new VisualComponentLibrary.ChoiceUserControl();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Select the weather:";
+            this.button2.Location = new System.Drawing.Point(27, 67);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(169, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "компонент2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
+            // button3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(282, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Select the date:";
+            this.button3.Location = new System.Drawing.Point(27, 27);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(169, 23);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "компонент1";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label3
+            // button4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(516, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Select the place:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(386, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonImage
-            // 
-            this.buttonImage.Location = new System.Drawing.Point(12, 238);
-            this.buttonImage.Name = "buttonImage";
-            this.buttonImage.Size = new System.Drawing.Size(75, 23);
-            this.buttonImage.TabIndex = 8;
-            this.buttonImage.Text = "Image";
-            this.buttonImage.UseVisualStyleBackColor = true;
-            this.buttonImage.Click += new System.EventHandler(this.buttonImage_Click);
-            // 
-            // buttonTable
-            // 
-            this.buttonTable.Location = new System.Drawing.Point(113, 237);
-            this.buttonTable.Name = "buttonTable";
-            this.buttonTable.Size = new System.Drawing.Size(75, 23);
-            this.buttonTable.TabIndex = 9;
-            this.buttonTable.Text = "Table";
-            this.buttonTable.UseVisualStyleBackColor = true;
-            this.buttonTable.Click += new System.EventHandler(this.buttonTable_Click);
-            // 
-            // buttonDiagram
-            // 
-            this.buttonDiagram.Location = new System.Drawing.Point(212, 237);
-            this.buttonDiagram.Name = "buttonDiagram";
-            this.buttonDiagram.Size = new System.Drawing.Size(75, 23);
-            this.buttonDiagram.TabIndex = 10;
-            this.buttonDiagram.Text = "Diagram";
-            this.buttonDiagram.UseVisualStyleBackColor = true;
-            this.buttonDiagram.Click += new System.EventHandler(this.buttonDiagram_Click);
-            // 
-            // inputUserControl
-            // 
-            this.inputUserControl.Location = new System.Drawing.Point(223, 23);
-            this.inputUserControl.MaxDate = null;
-            this.inputUserControl.MinDate = null;
-            this.inputUserControl.Name = "inputUserControl";
-            this.inputUserControl.SelectItemProperty = null;
-            this.inputUserControl.Size = new System.Drawing.Size(206, 54);
-            this.inputUserControl.TabIndex = 6;
-            // 
-            // outputUserControl
-            // 
-            this.outputUserControl.Location = new System.Drawing.Point(444, 23);
-            this.outputUserControl.Name = "outputUserControl";
-            this.outputUserControl.SelectItemProperty = -1;
-            this.outputUserControl.Size = new System.Drawing.Size(229, 228);
-            this.outputUserControl.TabIndex = 2;
-            // 
-            // choiceUserControl
-            // 
-            this.choiceUserControl.Location = new System.Drawing.Point(12, 23);
-            this.choiceUserControl.Name = "choiceUserControl";
-            this.choiceUserControl.SelectItemProperty = "";
-            this.choiceUserControl.Size = new System.Drawing.Size(196, 199);
-            this.choiceUserControl.TabIndex = 0;
+            this.button4.Location = new System.Drawing.Point(27, 113);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(169, 23);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "компонент3";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 282);
-            this.Controls.Add(this.buttonDiagram);
-            this.Controls.Add(this.buttonTable);
-            this.Controls.Add(this.buttonImage);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.inputUserControl);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.outputUserControl);
-            this.Controls.Add(this.choiceUserControl);
+            this.ClientSize = new System.Drawing.Size(238, 177);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private VisualComponentLibrary.ChoiceUserControl choiceUserControl;
-        private VisualComponentLibrary.OutputUserControl outputUserControl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private VisualComponentLibrary.InputUserControl inputUserControl;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonImage;
-        private System.Windows.Forms.Button buttonTable;
-        private System.Windows.Forms.Button buttonDiagram;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace VisualComponentLibrary.Unvisual
 {
-    partial class ImageExcelComponent
+    partial class Histogram
     {
         /// <summary>
         /// Обязательная переменная конструктора.
