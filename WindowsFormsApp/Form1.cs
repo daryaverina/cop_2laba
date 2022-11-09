@@ -104,7 +104,7 @@ namespace WindowsFormsApp
             Histogram hc = new Histogram();
 
             Dictionary<string, int> data = new Dictionary<string, int>();
-            data.Add("Moscow", 10);
+            data.Add("москва", 10);
             data.Add("Ulyanovsk", 25);
             data.Add("Samara", 19);
             data.Add("Yalta", 27);

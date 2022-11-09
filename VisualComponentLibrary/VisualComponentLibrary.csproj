@@ -124,6 +124,12 @@
     <Compile Include="Unvisual\TableExcelComponent.Designer.cs">
       <DependentUpon>TableExcelComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visual\OutputList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\OutputList.Designer.cs">
+      <DependentUpon>OutputList.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -136,13 +142,14 @@
     <EmbeddedResource Include="OutputUserControl.resx">
       <DependentUpon>OutputUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visual\OutputList.resx">
+      <DependentUpon>OutputList.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Visual\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
