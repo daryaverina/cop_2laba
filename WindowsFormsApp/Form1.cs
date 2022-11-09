@@ -34,7 +34,7 @@ namespace WindowsFormsApp
 
         List<MyObject> TestData = new List<MyObject> {
             new MyObject{ svodka = "first",
-            last_name = "bobrov",
+            last_name = "Бобров",
             first_name = "ivan",
             age = 15,
             premium = 10.000
@@ -79,7 +79,7 @@ namespace WindowsFormsApp
             List<PdfColumnInfo> columns = new List<PdfColumnInfo>();
             PdfRowInfo[] rows = new PdfRowInfo[4];
 
-            columns.Add(new PdfColumnInfo { Column_name = "svodka", Title = "Svodka", Width = 20});
+            columns.Add(new PdfColumnInfo { Column_name = "svodka", Title = "сводка", Width = 20});
             columns.Add(new PdfColumnInfo { Column_name = "last_name", Title = "Surname", Width = 20 });
             columns.Add(new PdfColumnInfo { Column_name = "first_name", Title = "Name", Width = 20 });
             columns.Add(new PdfColumnInfo { Column_name = "age", Title = "Age", Width = 10 });

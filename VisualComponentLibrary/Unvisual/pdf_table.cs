@@ -93,15 +93,19 @@ namespace VisualComponentLibrary.Unvisual
             {
                 table.SetWidths(widths);
             }
+            string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIAL.TTF");
+            var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            var font = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
+            //var headerFont = new iTextSharp.text.Font(font, 16, Font.BOLD);
 
-            BaseFont cellsFont = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-            Font headerFont = new Font(cellsFont, 16, Font.BOLD);
+            //  BaseFont cellsFont = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
+            //Font headerFont = new Font(cellsFont, 16, Font.BOLD);
             columns[0].Width = 20;
             //top headers
             foreach (var column in columns)
             {
                 Console.WriteLine(column.Title);
-                PdfPCell cell = new PdfPCell(new Phrase(column.Title, headerFont));
+                PdfPCell cell = new PdfPCell(new Phrase(column.Title, font));
                 if (heightsExist) cell.FixedHeight = (float)rows[0].Height;
                 cell.BackgroundColor = BaseColor.LIGHT_GRAY;
                 table.AddCell(cell);
@@ -117,7 +121,8 @@ namespace VisualComponentLibrary.Unvisual
                     
                     string value = propertyInfo.GetValue(item).ToString();
                     //Console.WriteLine("propinfo " + propertyInfo);
-                    PdfPCell cell = new PdfPCell(new Phrase(value));
+                    Console.WriteLine("value " + value);
+                    PdfPCell cell = new PdfPCell(new Phrase(value, font));
                     if (heightsExist) cell.FixedHeight = (float)rows[rowNumber].Height;
                     table.AddCell(cell);
                 }
@@ -129,7 +134,7 @@ namespace VisualComponentLibrary.Unvisual
             {
                 PdfPCell cell = row.GetCells()[0];
                 string text = cell.Phrase.Content;
-                PdfPCell newcell = new PdfPCell(new Phrase(text, headerFont));
+                PdfPCell newcell = new PdfPCell(new Phrase(text, font));
                 newcell.BackgroundColor = BaseColor.LIGHT_GRAY;
                 Console.WriteLine(text);
                 row.GetCells()[0] = newcell;
