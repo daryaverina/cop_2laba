@@ -12,8 +12,8 @@ using ShopDatabaseImplement;
 namespace ShopDatabaseImplement.Migrations
 {
     [DbContext(typeof(ShopDatabase))]
-    [Migration("20221028094732_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221110192150_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

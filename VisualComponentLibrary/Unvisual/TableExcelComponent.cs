@@ -25,7 +25,7 @@ namespace VisualComponentLibrary.Unvisual
 
         public void CreateExcelFileTable<T>(string filename, string filetitle, Dictionary<string, int[]> rowMergeInfo, int[] rowHeight, string[] tableHeader, List<T> listWithData)
         {
-            if (listWithData != null && tableHeader.Length != 0 && typeof(T).GetFields().Length == tableHeader.Length)
+            if (1==1)
             {
                 Excel.Application xlApp = new Excel.Application();
                 object misValue = System.Reflection.Missing.Value;
