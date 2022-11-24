@@ -175,5 +175,9 @@ namespace VisualComponentLibrary.Visual.yulia
             listBox.Items.Clear();
         }
 
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

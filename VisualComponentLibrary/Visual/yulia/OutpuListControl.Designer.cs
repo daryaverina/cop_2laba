@@ -39,6 +39,7 @@
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(626, 308);
             this.listBox.TabIndex = 0;
+            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // OutpuListControl
             // 
