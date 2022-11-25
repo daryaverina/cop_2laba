@@ -131,7 +131,11 @@ namespace ShopForms
                     if (view != null)
                     {
                         textBoxFIO.Text = view.Name;
-                       // textBoxFeedback.Text = view.ClientFeedback;
+                        textBoxBuy1.Text = view.Order1;
+                        textBoxBuy2.Text = view.Order2;
+                        textBoxBuy3.Text = view.Order3;
+                        textBoxBuy4.Text = view.Order4;
+                        // textBoxFeedback.Text = view.ClientFeedback;
                         comboBoxControl.GetSelectedItem = view.PickupPoint;
                       //  textTypeControl.Number = view.AmountOfPurchases;
                     }

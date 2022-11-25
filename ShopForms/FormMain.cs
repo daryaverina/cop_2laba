@@ -185,6 +185,7 @@ namespace ShopForms
 
         private void pDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            List<string> a = new List<string> { "a", "b", "c", "d"};
             List<string[,]> list = new List<string[,]>() {
                 new string[,]{ { "Id","1 order","2 order", "3order", "4 order"} },
             };
@@ -192,13 +193,13 @@ namespace ShopForms
                {
                    key[2, 2] = "as";
                }*/
-            Console.WriteLine(list);
+          //  Console.WriteLine(list);
          //   Console.Write(list);
-            list[0][1, 2] = "a";
+        //    list[0][0,0] = "a";
           //  list[0].
             //list.Add(list[1]);
             pdf_tables tc = new pdf_tables();
-            tc.SaveTables("C:\\Users\\Дарья\\Desktop\\firstComponent.pdf", "Title", list);
+            tc.SaveTables("C:\\Users\\Дарья\\Desktop\\firstComponent.pdf", "Покупки", list);
         }
 
         private void eXCELToolStripMenuItem_Click(object sender, EventArgs e)
