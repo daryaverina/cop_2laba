@@ -24,8 +24,8 @@ namespace ShopForms
             InitializeComponent();
             this.clientLogic = clientLogic;
             this.pickupPointLogic = pickupPointLogic;
-            inputUserControl.MaxDate = new DateTime(2024, 9, 22, 23, 59, 59);
-            inputUserControl.MinDate = new DateTime(2022, 9, 17, 23, 59, 59);
+            inputUserControl.MaxDate = new DateTime(2023, 9, 22, 23, 59, 59);
+            inputUserControl.MinDate = new DateTime(2019, 9, 17, 23, 59, 59);
             inputUserControl.SelectItemProperty = DateTime.Now;
         }
 
@@ -61,6 +61,11 @@ namespace ShopForms
                 MessageBox.Show("Выберите пункт выдачи клиента", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (inputUserControl.SelectItemProperty == null)
+            {
+                MessageBox.Show("Выберите последние 3 года!!!!! ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 clientLogic.CreateOrUpdate(new ClientBindingModel
@@ -72,7 +77,7 @@ namespace ShopForms
                     Order3 = textBoxBuy3.Text,
                     Order4 = textBoxBuy4.Text,
                     PickupPoint = comboBoxControl.GetSelectedItem,
-                    RegistrationDate = inputUserControl.TempDate
+                    RegistrationDate = (DateTime)inputUserControl.SelectItemProperty
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

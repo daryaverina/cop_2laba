@@ -37,7 +37,7 @@
             this.listBox.ItemHeight = 16;
             this.listBox.Location = new System.Drawing.Point(3, 6);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(626, 308);
+            this.listBox.Size = new System.Drawing.Size(898, 308);
             this.listBox.TabIndex = 0;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -47,7 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listBox);
             this.Name = "OutpuListControl";
-            this.Size = new System.Drawing.Size(638, 332);
+            this.Size = new System.Drawing.Size(904, 332);
             this.ResumeLayout(false);
 
         }

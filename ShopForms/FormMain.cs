@@ -44,7 +44,7 @@ namespace ShopForms
         private void LoadData()
         {
      
-            outputListControl.AddTemplate("Идентификатор {Id}, Имя {Name}, Пункт выдачи {PickupPoint},", '{', '}');
+            outputListControl.AddTemplate("Идентификатор {Id}, Имя {Name}, Пункт выдачи {PickupPoint}, Дата регистрации {RegistrationDate}", '{', '}');
             try
             {
                 List<ClientViewModel> list = clientLogic.Read(null);
@@ -185,39 +185,150 @@ namespace ShopForms
 
         private void pDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<string> a = new List<string> { "a", "b", "c", "d"};
-            List<string[,]> list = new List<string[,]>() {
-                new string[,]{ { "Id","1 order","2 order", "3order", "4 order"} },
-            };
-            /*   foreach (string[,] key in list)
-               {
-                   key[2, 2] = "as";
-               }*/
-          //  Console.WriteLine(list);
-         //   Console.Write(list);
-        //    list[0][0,0] = "a";
-          //  list[0].
-            //list.Add(list[1]);
-            pdf_tables tc = new pdf_tables();
-            tc.SaveTables("C:\\Users\\Дарья\\Desktop\\firstComponent.pdf", "Покупки", list);
+            using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var listClients = clientLogic.Read(null);
+                    if (listClients.Count == 5)
+                    {
+                        List<string[,]> list = new List<string[,]>() {
+                        new string[6,5]{ { "Id","1 order","2 order", "3order", "4 order"}, {"", "", "", "", ""  }, {"", "", "", "","" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" } }
+                        };
+                        int row = 1;
+
+                        foreach (var client in listClients)
+                        {
+                            list[0][row, 0] = client.Id.ToString();
+                            list[0][row, 1] = client.Order1.ToString();
+                            list[0][row, 2] = client.Order2.ToString();
+                            list[0][row, 3] = client.Order3.ToString();
+                            list[0][row, 4] = client.Order4.ToString();
+                            row++;
+                        }
+                        pdf_tables tc = new pdf_tables();
+                        // word.Report(fileName: dialog.FileName, titleDoc: "Статистика пунктов выдачи", nameDiagram: "Линейная диаграмма", data, axes);
+
+                        tc.SaveTables(dialog.FileName, "Покупки", list);
+                        MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (listClients.Count == 6)
+                    {
+                        List<string[,]> list = new List<string[,]>()
+                        {
+                            new string[7, 5] { { "Id", "1 order", "2 order", "3order", "4 order" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" }, {"", "", "", "", ""}, { "", "", "", "", "" } }
+                        };
+                        int row = 1;
+
+                        foreach (var client in listClients)
+                        {
+                            list[0][row, 0] = client.Id.ToString();
+                            list[0][row, 1] = client.Order1.ToString();
+                            list[0][row, 2] = client.Order2.ToString();
+                            list[0][row, 3] = client.Order3.ToString();
+                            list[0][row, 4] = client.Order4.ToString();
+                            row++;
+                        }
+                        pdf_tables tc = new pdf_tables();
+                        tc.SaveTables(dialog.FileName, "Покупки", list);
+                    }
+                    else if (listClients.Count == 4)
+                    {
+                        List<string[,]> list = new List<string[,]>()
+                        {
+                            new string[5, 5] { { "Id", "1 order", "2 order", "3order", "4 order" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" },  { "", "", "", "", ""  } }
+                        };
+                        int row = 1;
+
+                        foreach (var client in listClients)
+                        {
+                            list[0][row, 0] = client.Id.ToString();
+                            list[0][row, 1] = client.Order1.ToString();
+                            list[0][row, 2] = client.Order2.ToString();
+                            list[0][row, 3] = client.Order3.ToString();
+                            list[0][row, 4] = client.Order4.ToString();
+                            row++;
+                        }
+                        pdf_tables tc = new pdf_tables();
+                        tc.SaveTables(dialog.FileName, "Покупки", list);
+                    }
+                    else if (listClients.Count == 3)
+                    {
+                        List<string[,]> list = new List<string[,]>()
+                        {
+                            new string[4, 5] { { "Id", "1 order", "2 order", "3order", "4 order" }, { "", "", "", "", "" }, { "", "", "", "", "" }, { "", "", "", "", "" } }
+                        };
+                        int row = 1;
+
+                        foreach (var client in listClients)
+                        {
+                            list[0][row, 0] = client.Id.ToString();
+                            list[0][row, 1] = client.Order1.ToString();
+                            list[0][row, 2] = client.Order2.ToString();
+                            list[0][row, 3] = client.Order3.ToString();
+                            list[0][row, 4] = client.Order4.ToString();
+                            row++;
+                        }
+                        pdf_tables tc = new pdf_tables();
+                        tc.SaveTables(dialog.FileName, "Покупки", list);
+                    }
+                    else if (listClients.Count == 2)
+                    {
+                        List<string[,]> list = new List<string[,]>()
+                        {
+                            new string[3, 5] { { "Id", "1 order", "2 order", "3order", "4 order" }, { "", "", "", "", "" }, { "", "", "", "", "" } }
+                        };
+                        int row = 1;
+
+                        foreach (var client in listClients)
+                        {
+                            list[0][row, 0] = client.Id.ToString();
+                            list[0][row, 1] = client.Order1.ToString();
+                            list[0][row, 2] = client.Order2.ToString();
+                            list[0][row, 3] = client.Order3.ToString();
+                            list[0][row, 4] = client.Order4.ToString();
+                            row++;
+                        }
+                        pdf_tables tc = new pdf_tables();
+                        tc.SaveTables(dialog.FileName, "Покупки", list);
+                    }
+
+
+                    /*   foreach (string[,] key in list)
+                       {
+                           key[2, 2] = "as";
+                       }*/
+                    //  Console.WriteLine(list);
+                    //   Console.Write(list);
+                    //    list[0][0,0] = "a";
+                    //  list[0].
+                    //list.Add(list[1]);
+                }
+            }
         }
 
         private void eXCELToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var listClients = clientLogic.Read(null);
-            var rowMergeInfo = new Dictionary<string, int[]>();
-            rowMergeInfo.Add("Магазин", new int[] { 3,4 });
-            var rowHeight = new int[] { 20, 70, 20, 20 };
-            var tableHeader = new string[] { "Ид", "Имя", "Дата регистрации", "Пункт выдачи" };
-            var clientList = new List<Client>();
-            foreach (var client in listClients)
+            using (var dialog = new SaveFileDialog { Filter = "xls|*.xls" })
             {
-                clientList.Add(new Client((int)client.Id, client.Name, client.RegistrationDate, client.PickupPoint ) );
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var listClients = clientLogic.Read(null);
+                    var rowMergeInfo = new Dictionary<string, int[]>();
+                    rowMergeInfo.Add("Магазин", new int[] { 3, 4 });
+                    var rowHeight = new int[] { 20, 70, 20, 20 };
+                    var tableHeader = new string[] { "Ид", "Имя", "Дата регистрации", "Пункт выдачи" };
+                    var clientList = new List<Client>();
+                    foreach (var client in listClients)
+                    {
+                        clientList.Add(new Client((int)client.Id, client.Name, client.RegistrationDate, client.PickupPoint));
+                    }
+
+                    TableExcelComponent comp3 = new TableExcelComponent();
+                    comp3.CreateExcelFileTable(dialog.FileName, "Книги", rowMergeInfo, rowHeight, tableHeader, clientList);
+                        MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
             }
-
-            TableExcelComponent comp3 = new TableExcelComponent();
-            comp3.CreateExcelFileTable("C:\\Users\\Дарья\\Desktop\\ExcelTable.xls", "Книги", rowMergeInfo, rowHeight, tableHeader, clientList);
-
         }
     }
 }

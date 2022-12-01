@@ -26,7 +26,7 @@ namespace ShopBusinessLogic.BusinessLogic
                 {
                     Name = model.Name,
                     PickupPoint = model.PickupPoint,
-                    RegistrationDate = model.RegistrationDate,
+                    RegistrationDate = DateTime.Now,
                     Order1 = model.Order1,
                     Order2 = model.Order2,
                     Order3 = model.Order3,
